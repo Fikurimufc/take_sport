@@ -41,11 +41,19 @@ $this->load->view('dashboard/vw_side'); ?>
       		<th><?php echo $row->product_name;?></th>
       		<th><?php echo $row->price; ?></th>
       		<th><?php echo $row->stock;?></th>
-      		<th><button class="btn btn-primary" name="update">Update</button></th>
+      		<th><a data-toggle="collapse" href="update"><button class="btn btn-primary" name="update">Update</button></a></th>
       	</tr>
       	<?php endforeach;?>
       </table>	
-      </div><!-- box succes--> 
+      </div><!-- box succes-->
+    <div class="collapse" id="update">
+      <div class="box box-succes">
+        <div class="box-header with border">
+          <h3 class="box-title">Update produk</h3>
+        </div><!-- box header -->
+      <p>aaa</p>
+      </div><!-- succes 2-->
+    </div>
       </section>
       </div><!-- /.content-wrapper --> 
 </aside> 

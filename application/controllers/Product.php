@@ -38,10 +38,19 @@ class Product extends CI_Controller {
 	}
 
 	public function detail_product(){
+
 		$code_product = $this->input->get('product_code');
 		$data['product'] 	  = $this->product_model->detail($code_product);
 		$data['list'] = $this->product_model->list_type();
 		$this->load->view('shop/vw_detail',$data);		
+	}
+	public function add_cart(){
+		$insert_data = array('id'	=> $this->input->post('product_code'),
+							'name' 	=> $this->input->post('product_name'),
+							'price' => $this->input->post('harga'),
+							'qty' 	=> $this->input->post('jumlah')	
+							);
+							$this->cart->insert($insert_data);
 	}
 
 }

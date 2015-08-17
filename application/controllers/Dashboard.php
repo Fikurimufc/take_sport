@@ -138,7 +138,8 @@ class Dashboard extends CI_Controller {
 		$user = $this->session->userdata('logged_in');
 		$uid  = array_shift($user);
 		$data['get_product'] = $this->Product_model->list_product($uid);
-		
+		$code_product = $this->input->get('product_code');
+		$data['product'] = $this->Product_model->get_product($code_product);
 		$this->load->view('dashboard/vw_manageProduct',$data);
 	}
 
