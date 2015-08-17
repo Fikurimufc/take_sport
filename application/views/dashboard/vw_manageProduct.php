@@ -29,7 +29,7 @@ $this->load->view('dashboard/vw_side'); ?>
       	</div>
       <table class="table table-bordered">
  		<tr>
- 			<th><b>kode produk...</b></th>
+ 			<th><b>kode produk</b></th>
  			<th>Nama produk</th>
  			<th>Harga</th>
  			<th>Stok barang</th>
