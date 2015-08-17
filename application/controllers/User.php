@@ -5,6 +5,7 @@ class User extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		if(!$this->session->userdata('logged_in')){redirect('main','refresh');}
 		$this->load->model('User_model','',TRUE);
 			}
 	/**
@@ -84,8 +85,17 @@ class User extends CI_Controller {
               	$image = $value['file_name'];}
               	$this->User_model->insert_user($username,$password,$name,$email,$gender,$status,$image);
               	//$str = $this->db->last_query();
-              	//echo $str;
+              	//echo $str
           } 
 
 	}
+
+			public function profile(){
+				$arr_user = $this->session->userdata('logged_in');
+				$uid = array_shift($arr_user);
+				$data['profile'] = $this->User_model->get_user($uid);
+				$this->load->view('dashboard/asset');
+				$this->load->view('dashboard/vw_side');
+				$this->load->view('dashboard/vw_profil',$data);
+			}
 }

@@ -23,6 +23,17 @@ class User_model extends CI_Model
 				 //content_contact='$contact'');
 	}
 
+	function get_user($uid){
+		$this->db->select('*');
+		$this->db->from('tbl_user');
+		$this->db->where('uid',$uid);
+		return $this->db->get();
+	}
+
+	function update_profil(){
+		
+	}
+
  	
 }
 ?>

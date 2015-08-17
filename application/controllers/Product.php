@@ -18,9 +18,30 @@ class Product extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+		parent::__construct();
+		$this->load->model('Shop/product_model');
+	}
 	public function index()
 	{
-		$this->load->view('shop/asset.php');
-		$this->load->view('shop/vw_body.php');
+		$type_id = $this->input->get('id_type');
+		if (!$type_id){
+		$data['product'] = $this->product_model->get_product();
+		}else{
+		$data['product'] = $this->product_model->product_category($type_id);
+		}
+		$data['list'] = $this->product_model->list_type();
+		$this->load->view('shop/asset');
+		$this->load->view('shop/vw_body',$data);
+		$this->load->view('shop/vw_product');
+		$this->load->view('shop/vw_footer');
 	}
+
+	public function detail_product(){
+		$code_product = $this->input->get('product_code');
+		$data['product'] 	  = $this->product_model->detail($code_product);
+		$data['list'] = $this->product_model->list_type();
+		$this->load->view('shop/vw_detail',$data);		
+	}
+
 }

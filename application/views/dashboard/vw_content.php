@@ -4,7 +4,7 @@ tinymce.init({
   selector : "textarea#elm1",
   theme : "modern",
   width : 650,
-  height : 10
+  height : 250
 });
 tinymce.init({
   selector : "textarea#elm2",
@@ -32,15 +32,17 @@ tinymce.init({
       <?php echo form_open('Content/save_content'); ?>
 
         
-        <section class="content"> 
-            <form class="form-horizontal" role="form"> 
+        <section class="content">
+          <div class="box box-succes">
+          <div class="box-header with border"><h3 class="box-title">About</h3></div> 
+           <form class="form-horizontal" role="form"> 
               <div class="form-group">
-                <label >about</label>
-                  <div>
+                  <div style="margin-left:10px;">
                     <textarea id="elm1" name='about'></textarea>
                   </div>
                </div> 
-         
+
+             </div> <!-- box succes-->
             </br>
             
                 <div class="form-group">

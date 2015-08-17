@@ -64,7 +64,7 @@ $user = $this->session->userdata('logged_in');
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="<?php echo base_url()?>User/profile" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
                       <a href="<?php echo base_url()?>Dashboard/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -115,7 +115,7 @@ $user = $this->session->userdata('logged_in');
              <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i><span>menu produk</span></a>
                 <ul class="treeview-menu">
-                  <li><a href="#">Buat produk baru</a></li>
+                  <li><a href="<?php echo base_url()?>Dashboard/createProduct">Buat produk baru</a></li>
                   <li><a href="#">Kelola produk</a></li>
                 </ul>
               </li><!--Menu produk -->

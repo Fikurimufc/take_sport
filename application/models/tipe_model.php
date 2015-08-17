@@ -29,7 +29,7 @@ class Tipe_model extends CI_Model
 		$array_keys_value = $this->db->get();
 
 		foreach ($array_keys_value->result() as $value) {
-			$result[0] = '-Pilih type-';
+			$result[0] = '-Pilih kategori-';
 			$result[$value->id_type] = $value->name_type;
 		}
 		return $result;

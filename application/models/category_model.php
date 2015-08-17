@@ -17,12 +17,20 @@ class Category_model extends CI_Model
 		$this->db->insert('tbl_category');
 	}
 
-	function get_category(){
-		$this->db->select('a.id_category, a.type_id, a.category_name, c.type_name');
-		$this->db->from('tbl_category as a, tbl_type_product as c');
-		$this->db->where('c.id_type = a.type_id');
-		$this->db->where('type_id',$type_id);
-		return $this->db->get();	
+
+	function list_category(){
+		$id_type = $this->input->post('id_type');
+		$result = array();
+		$this->db->select('*');
+		$this->db->from('tbl_category');
+		$this->db->where('type_id', $id_type);
+		$this->db->order_by('category_name');
+		$array = $this->db->get();
+		foreach ($array->result() as $row){
+			$result[0] = 'pilih kategori';
+			$result[$row->id_category] = $row->category_name;
+		}
+		return $result;
 	}
 
 

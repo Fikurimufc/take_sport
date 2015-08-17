@@ -16,7 +16,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Lihat Produk</h2>
                     <p><?php echo $row->content_product;?></p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Produk Page</a>
+                    <a href="<?php echo base_url()?>Product" class="btn btn-default btn-lg">Visit Produk Page</a>
                 </div>
             </div>
         </div>
